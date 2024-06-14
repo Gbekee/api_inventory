@@ -9,7 +9,7 @@
 4) Performing CRUD functionalities for items and suppliers<br>
 <h2>Prerequisites:</h2>
 <p> 
-  1) Python 3.12,<br>
+  1) Python 3.12<br>
   2) djangorestframework 3.15.1<br>
   3) django 5.0.6<br>
 </p>
