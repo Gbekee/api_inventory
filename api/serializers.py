@@ -5,7 +5,6 @@ class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
         model = Supplier
         fields = ['id', 'name', 'contact', 'items']
-        read_only_fields = ['items']
 class ItemSerializer(serializers.ModelSerializer):
     suppliers = serializers.PrimaryKeyRelatedField(queryset=Supplier.objects.all(), many=True)
     
