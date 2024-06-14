@@ -9,7 +9,7 @@
 4) Performing CRUD functionalities for items and suppliers<br>
 <h2>Prerequisites:</h2>
 <p> 
-  1) Python 3.12<br>
+  1) Python 3.12,<br>
   2) djangorestframework 3.15.1<br>
   3) django 5.0.6<br>
 </p>
@@ -57,5 +57,6 @@ Development server will be running on  http://127.0.0.1:8000 <br>
 9) PUT /suppliesr/str:pk: Update a specific supplier
 <hr>
 <br>
-<b>This documentation provides a comprehensive guide for setting up, using, and understanding the Online Store Inventory and Supplier Management API. For further details or assistance, please refer to the source code and comments within the code.</b>
-<br>
+<b>This documentation provides a comprehensive guide for setting up, using, and understanding the Online Store Inventory and Supplier Management API. For further details or assistance, please refer to the source code and comments within the code.
+Here is the test requests and response from postman</b>
+<a href='https://documenter.getpostman.com/view/31900650/2sA3XQgMhB'>Click to see examples of requests and responses</a>
