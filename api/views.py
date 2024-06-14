@@ -4,14 +4,14 @@ from rest_framework.decorators import api_view
 from .serializers import ItemSerializer, SupplierSerializer
 from .models import Item, Supplier
 
+# retrieve item list, create item
 @api_view(['GET','POST'])
 def items(request):
     if request.method=='GET':
         item=Item.objects.all()
-        print(item)
         serializer=ItemSerializer(item, many=True)
-        print(serializer)
         return Response(serializer.data)
+
     if request.method=='POST':
         serializer=ItemSerializer(data=request.data)
         if serializer.is_valid():
@@ -19,6 +19,7 @@ def items(request):
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
     
+# retrieve supplier list, create supplier
 @api_view(['GET','POST'])
 def suppliers(request):
     if request.method=='GET':
@@ -34,6 +35,7 @@ def suppliers(request):
             return Response(serializer.data, status=201)
         return Response(serializer.errors, status=400)
 
+# retrieve specific item, delete specific item, update specific item
 @api_view(['GET','DELETE','PUT'])
 def item(request, pk):
     if request.method=='GET':
@@ -51,7 +53,8 @@ def item(request, pk):
         item_instance=Item.objects.get(id=pk)
         item_instance.delete()
         return Response()
-        
+
+# retrieve specific supplier, update specific supplier   
 @api_view(['GET','PUT'])
 def supplier(request, pk):
     if request.method=='GET':
@@ -65,10 +68,3 @@ def supplier(request, pk):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors)
-
-@api_view(['GET'])
-def supplier_items(request, pk):
-    serializer=ItemSerializer(Item.objects.filter(suppliers=pk), many=True)
-    return Response(serializer.data)
-        
-        

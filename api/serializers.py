@@ -4,14 +4,15 @@ from .models import Item, Supplier
 class SupplierSerializer(serializers.ModelSerializer):
     class Meta:
         model = Supplier
-        fields = '__all__'
-
+        fields = ['id', 'name', 'contact', 'items']
+        read_only_fields = ['items']
 class ItemSerializer(serializers.ModelSerializer):
     suppliers = serializers.PrimaryKeyRelatedField(queryset=Supplier.objects.all(), many=True)
     
     class Meta:
         model = Item
-        fields = '__all__'
+        
+        fields='__all__'
 
     def create(self, validated_data):
         try:    
