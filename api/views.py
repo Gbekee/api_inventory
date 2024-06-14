@@ -24,9 +24,7 @@ def items(request):
 def suppliers(request):
     if request.method=='GET':
         supplier=Supplier.objects.all()
-        print(supplier)
         serializer=SupplierSerializer(supplier, many=True)
-        print(serializer)
         return Response(serializer.data)
     if request.method=='POST':
         serializer=SupplierSerializer(data=request.data)
